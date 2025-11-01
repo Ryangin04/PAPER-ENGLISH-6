@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Works - Paper & English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-paper: #F8F5F2;
+            --color-ink: #333333;
+            --color-wax: #800020;
+            --font-serif: 'Noto Serif JP', serif;
+            --font-sans: 'Noto Sans JP', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-paper);
+            color: var(--color-ink);
+            line-height: 1.8;
+        }
+
+        /* Header */
+        header {
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--color-wax);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
+        .page-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 300;
+            line-height: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        /* Product Card */
+        .product-card {
+            background: white;
+            border: 1px solid rgba(51, 51, 51, 0.1);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-name {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: var(--color-ink);
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(128, 0, 32, 0.2);
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--color-wax);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            text-align: left;
+        }
+
+        .product-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--color-wax);
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-wax);
+        }
+
+        .product-btn:hover {
+            background-color: transparent;
+            color: var(--color-wax);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-ink);
+            color: var(--color-paper);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-message {
+            font-family: var(--font-serif);
+            font-size: clamp(1.3rem, 2.5vw, 2rem);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin: 0 0.5rem;
+            border: 1px solid var(--color-paper);
+            border-radius: 50%;
+            color: var(--color-paper);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--color-wax);
+            border-color: var(--color-wax);
+        }
+
+        .instagram-username {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .copyright {
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+            margin-top: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            header {
+                padding: 2rem 1rem;
+            }
+
+            .gallery {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-link">← Paper & English へ戻る</a>
+        <h1 class="page-title fade-in">Our Works</h1>
+        <p class="page-subtitle fade-in">
+            静かな努力の軌跡を、手の中に。<br>
+            一枚一枚に込められた物語を、どうぞお選びください。
+        </p>
+    </header>
+
+    <main class="gallery">
+        <div class="gallery-grid">
+            <!-- Product 1 -->
+            <article class="product-card fade-in">
+                <h2 class="product-name">Serendipity Set</h2>
+                <p class="product-price">¥1,800</p>
+                <p class="product-description">
+                    『Paper & English』の原点である「思考の軌跡」に、直接触れてみたいあなたへ。ランダムに選ばれた5枚は、まさに一期一会の出会い。どんな言葉との偶然（セレンディピティ）が待っているか、その高揚感をお楽しみください。
+                </p>
+                <a href="https://disci04.base.shop/items/113564844" class="product-btn" target="_blank" rel="noopener noreferrer">この物語を、あなたの手に</a>
+            </article>
+
+            <!-- Product 2 -->
+            <article class="product-card fade-in">
+                <h2 class="product-name">Abundance Set</h2>
+                <p class="product-price">¥3,000</p>
+                <p class="product-description">
+                    5枚の偶然では物足りない、もっと深く『Paper & English』の世界に浸りたいあなたへ。ランダムに選ばれた10枚のアートは、より豊かで多層的なインスピレーションの海。あなた自身の心と静かに「対話」するための、満ち足りた時間。
+                </p>
+                <a href="https://disci04.base.shop/items/113566550" class="product-btn" target="_blank" rel="noopener noreferrer">この物語を、あなたの手に</a>
+            </article>
+
+            <!-- Product 3 -->
+            <article class="product-card fade-in">
+                <h2 class="product-name">The Library Set</h2>
+                <p class="product-price">¥4,200</p>
+                <p class="product-description">
+                    偶然の出会い、そして対話の先へ。ブランドの世界観に完全に「没入」したいあなたに贈る、15枚セットです。あなたのデスクを知的で創造的な「パーソナル・ライブラリー（小さな書斎）」へと変えるでしょう。
+                </p>
+                <a href="https://disci04.base.shop/items/113566668" class="product-btn" target="_blank" rel="noopener noreferrer">この物語を、あなたの手に</a>
+            </article>
+
+            <!-- Product 4 -->
+            <article class="product-card fade-in">
+                <h2 class="product-name">The Four Seasons Collection</h2>
+                <p class="product-price">¥5,000</p>
+                <p class="product-description">
+                    ブランドの世界を深く愛するあなたへ贈る、シリーズの集大成。これは単なるアートの束ではなく、一年を通してあなたの日常に寄り添う「知の風景」です。季節の移ろいと共に、20枚の言葉を飾り変える喜び。
+                </p>
+                <a href="https://disci04.base.shop/items/113566776" class="product-btn" target="_blank" rel="noopener noreferrer">この物語を、あなたの手に</a>
+            </article>
+
+            <!-- Product 5 -->
+            <article class="product-card fade-in">
+                <h2 class="product-name">Glimmer Set</h2>
+                <p class="product-price">¥2,800</p>
+                <p class="product-description">
+                    『Paper & English』のモノクロームな世界に、新たな息吹を宿す「彩」のシリーズが誕生。マーカーの色彩が加わりました。その一筋の色は、あなたの感性を揺さぶり、新たな発見へと導く光のよう。
+                </p>
+                <a href="https://disci04.base.shop/items/114035187" class="product-btn" target="_blank" rel="noopener noreferrer">この物語を、あなたの手に</a>
+            </article>
+
+            <!-- Product 6 -->
+            <article class="product-card fade-in">
+                <h2 class="product-name">Kaleidoscope Set</h2>
+                <p class="product-price">¥5,000</p>
+                <p class="product-description">
+                    5つのきらめきでは物足りない、色彩の海をさらに深く探求したいあなたへ。ランダムに選ばれた10枚のアートが織りなすのは、覗き込むたびに表情を変える、あなただけの「知の万華鏡」。
+                </p>
+                <a href="https://disci04.base.shop/items/114035364" class="product-btn" target="_blank" rel="noopener noreferrer">この物語を、あなたの手に</a>
+            </article>
+
+            <!-- Product 7 -->
+            <article class="product-card fade-in">
+                <h2 class="product-name">The Gallery Set</h2>
+                <p class="product-price">¥7,000</p>
+                <p class="product-description">
+                    きらめきと万華鏡の先、色彩の世界に心を委ねたいあなたへ。シリーズの集大成となる15枚のアートは、あなたの部屋をインスピレーションに満ちた「パーソナル・ギャラリー」へと変貌させます。
+                </p>
+                <a href="https://disci04.base.shop/items/114035583" class="product-btn" target="_blank" rel="noopener noreferrer">この物語を、あなたの手に</a>
+            </article>
+
+            <!-- Product 8 -->
+            <article class="product-card fade-in">
+                <h2 class="product-name">The Artist's Atelier</h2>
+                <p class="product-price">¥9,000</p>
+                <p class="product-description">
+                    これまであなたは鑑賞者でした。ここから、あなたは芸術家になる。シリーズの集大成となる20枚のアートは、あなたのデスクを創造の喜びに満ちた「パーソナル・アトリエ」へと変貌させます。
+                </p>
+                <a href="https://disci04.base.shop/items/114035617" class="product-btn" target="_blank" rel="noopener noreferrer">この物語を、あなたの手に</a>
+            </article>
+
+            <!-- Product 9 -->
+            <article class="product-card fade-in">
+                <h2 class="product-name">A Single Letter</h2>
+                <p class="product-price">¥2,500</p>
+                <p class="product-description">
+                    『Paper & English』が、新たな言葉を巡る旅へ。期間限定で贈るのは、心ときめく「ハングル」との一期一会の出会いです。遠い国から届いた「一通の手紙」を開けるように、その運命的な出会いをお楽しみください。
+                </p>
+                <a href="https://disci04.base.shop/items/114038571" class="product-btn" target="_blank" rel="noopener noreferrer">この物語を、あなたの手に</a>
+            </article>
+
+            <!-- Product 10 -->
+            <article class="product-card fade-in">
+                <h2 class="product-name">The First Folio</h2>
+                <p class="product-price">¥9,000</p>
+                <p class="product-description">
+                    これまでの物語は、序章にすぎません。『Paper & English』が贈る、あなただけの「知的コレクション」が、今、始まります。漆黒のファイルに収められた40枚の手書きアート。静かに重ねた時間の証を、この最初の一冊に。
+                </p>
+                <a href="https://disci04.base.shop/items/115822426" class="product-btn" target="_blank" rel="noopener noreferrer">この物語を、あなたの手に</a>
+            </article>
+
+            <!-- Product 11 -->
+            <article class="product-card fade-in">
+                <h2 class="product-name">A Single Sheet</h2>
+                <p class="product-price">¥980</p>
+                <p class="product-description">
+                    『Paper & English』の世界への、最初の扉を開きたいあなたへ。ブランドの哲学を最も純粋な形で凝縮したこの一枚は、あなたの新しい一日に静かな方向性を示します。壮大な旅も、この一枚の言葉との出会いから。
+                </p>
+                <a href="https://disci04.base.shop/items/122957925" class="product-btn" target="_blank" rel="noopener noreferrer">この物語を、あなたの手に</a>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p class="footer-message">この物語を、あなたの手に。</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/disci__04/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @disci__04">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+        </div>
+        <p class="instagram-username">@disci__04</p>
+        <p class="copyright">© 2025 Paper & English. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animationPlayState = 'running';
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
